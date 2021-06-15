@@ -19,6 +19,11 @@ public class UserController {
         return firebaseService.getUserDetails(id);
     }
 
+    @GetMapping("login")
+    public User getUserByLogin(@RequestParam String email, @RequestParam String password) throws InterruptedException, ExecutionException {
+        return firebaseService.getUserByLogin(email, password);
+    }
+
     @GetMapping("/list")
     public List<User> getUsers() throws InterruptedException, ExecutionException {
         return firebaseService.getUserDetails();

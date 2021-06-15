@@ -42,6 +42,21 @@ public class UserService {
         }
     }
 
+    public User getUserByLogin(String email, String password) throws InterruptedException, ExecutionException {
+        List<User> userList = new ArrayList<>();
+
+        Firestore dbFirestore = FirestoreClient.getFirestore();
+        ApiFuture<QuerySnapshot> future = dbFirestore.collection(COLLECTION_NAME).whereEqualTo("email", email).whereEqualTo("password", password).get();
+
+        List<QueryDocumentSnapshot> documents = future.get().getDocuments();
+
+        for (QueryDocumentSnapshot document : documents) {
+            return document.toObject(User.class);
+        }
+
+        return null;
+    }
+
     public List<User> getUserDetails() throws InterruptedException, ExecutionException {
         List<User> userList = new ArrayList<>();
 
