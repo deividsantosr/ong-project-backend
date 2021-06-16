@@ -20,7 +20,7 @@ public class CategoryController {
     }
 
     @GetMapping("/list")
-    public List<Category> getCategorys() throws InterruptedException, ExecutionException {
+    public List<Category> getCategories() throws InterruptedException, ExecutionException {
         return firebaseService.getCategoryDetails();
     }
 

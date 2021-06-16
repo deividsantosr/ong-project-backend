@@ -17,11 +17,11 @@ public class DonationService {
 
     public static final String COLLECTION_NAME = "donations";
 
-    public String saveDonationDetails(Donation donation) throws InterruptedException, ExecutionException {
+    public Donation saveDonationDetails(Donation donation) throws InterruptedException, ExecutionException {
         Firestore dbFirestore = FirestoreClient.getFirestore();
         donation.setId(UUID.randomUUID().toString());
         ApiFuture<WriteResult> collectionsApiFuture = dbFirestore.collection(COLLECTION_NAME).document(donation.getId()).set(donation);
-        return collectionsApiFuture.get().getUpdateTime().toString();
+        return donation;
     }
 
     public Donation getDonationDetails(String id) throws InterruptedException, ExecutionException {
@@ -46,7 +46,7 @@ public class DonationService {
         List<Donation> donationList = new ArrayList<>();
 
         Firestore dbFirestore = FirestoreClient.getFirestore();
-        ApiFuture<QuerySnapshot> future = dbFirestore.collection(COLLECTION_NAME).get();
+        ApiFuture<QuerySnapshot> future = dbFirestore.collection(COLLECTION_NAME).orderBy("createdDate", Query.Direction.DESCENDING).get();
 
         List<QueryDocumentSnapshot> documents = future.get().getDocuments();
 

@@ -25,7 +25,7 @@ public class DonationController {
     }
 
     @PostMapping
-    public String createDonation(@RequestBody Donation donation) throws InterruptedException, ExecutionException {
+    public Donation createDonation(@RequestBody Donation donation) throws InterruptedException, ExecutionException {
         return firebaseService.saveDonationDetails(donation);
     }
 
