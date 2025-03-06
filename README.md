@@ -1,7 +1,7 @@
 
 # NOGs - REST API
 
-This is a REST API developed using Java, Spring Boot, Firebase, and Swagger. It is designed to serve the functionalities of the UAM NGO app. The system supports user management, donations, mobile settings, and donation categories.
+This is a REST API developed using Java, Spring Boot, Firebase, and Swagger. It is designed to serve the functionalities of the NOGs App. The system supports user management, donations, mobile settings, and donation categories.
 
 ## Technologies Used
 
@@ -19,7 +19,7 @@ Allows the creation of new users within the system, ensuring that basic informat
 Manages donations made to the NGO, allowing for the recording and tracking of user contributions. Donations can be associated with specific categories and described as needed.
 
 ### 3. **Mobile Settings**
-Provides the ability to update the mobile app's settings, such as notifications and theme preferences, enabling users to personalize their experience.
+Provides the ability to update simple app customization settings, such as the title, description, image, and additional information, allowing users to personalize the app experience.
 
 ### 4. **Donation Categories**
 Defines and provides a list of donation categories, helping to organize and display the contributions made by users.
